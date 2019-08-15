@@ -1,6 +1,7 @@
 # Simple Build Tool
 # http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
 
+/src/main/resources/wikipedia/wikipedia.dat
 dist/*
 target/
 lib_managed/
@@ -10,3 +11,9 @@ project/plugins/project/
 .history
 .cache
 .lib/
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf

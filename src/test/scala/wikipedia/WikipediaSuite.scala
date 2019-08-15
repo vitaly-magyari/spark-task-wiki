@@ -84,6 +84,13 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     )
   }
 
+  test("RDD contains proper data") {
+    import WikipediaRanking._
+    assert(!wikiRdd.isEmpty())
+    assert(wikiRdd.first().title === "Mimoxenolea")
+    assert(wikiRdd.take(2)(1).text === "#REDIRECT [[Otto Piper]]")
+  }
+
   test("'occurrencesOfLang' should work for (specific) RDD with one element") {
     assert(initializeWikipediaRanking(), " -- did you fill in all the values in WikipediaRanking (conf, sc, wikiRdd)?")
     import WikipediaRanking._

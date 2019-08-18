@@ -25,10 +25,20 @@ object WikipediaRanking {
   val wikiRdd: RDD[WikipediaArticle] = sc.textFile(WikipediaData.filePath).map(s => WikipediaData.parse(s))
 
   /** Returns the number of articles on which the language `lang` occurs.
-   *  Hint1: consider using method `aggregate` on RDD[T].
-   *  Hint2: consider using method `mentionsLanguage` on `WikipediaArticle`
-   */
-  def occurrencesOfLang(lang: String, rdd: RDD[WikipediaArticle]): Int = ???
+    * Hint1: consider using method `aggregate` on RDD[T].
+    * Hint2: consider using method `mentionsLanguage` on `WikipediaArticle`
+    */
+  def occurrencesOfLang(lang: String, rdd: RDD[WikipediaArticle]): Int = {
+    val seqOp: (Int, WikipediaArticle) => Int = (count: Int, article: WikipediaArticle) =>
+      if (article.mentionsLanguage(lang)) {
+        count + 1
+      } else {
+        count
+      }
+
+    val combOp: (Int, Int) => Int = (x: Int, y: Int) => x + y
+    rdd.aggregate(0)(seqOp, combOp)
+  }
 
   /* (1) Use `occurrencesOfLang` to compute the ranking of the languages
    *     (`val langs`) by determining the number of Wikipedia articles that
@@ -82,6 +92,7 @@ object WikipediaRanking {
   }
 
   val timing = new StringBuffer
+
   def timed[T](label: String, code: => T): T = {
     val start = System.currentTimeMillis()
     val result = code

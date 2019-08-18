@@ -110,11 +110,11 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     val rdd = sc.parallelize(List(
       WikipediaArticle("1", "Scala"),
       WikipediaArticle("2", "Scala Java"),
-      WikipediaArticle("2", "Scala Java Groovy"),
+      WikipediaArticle("2", "Scala Groovy"),
       WikipediaArticle("2", "Scala Java Groovy Kotlin")
     ))
     val ranked = rankLangs(langs, rdd)
-    assert(ranked.unzip._1 === List("Scala", "Java", "Groovy", "Kotlin"))
+    assert(ranked.unzip._1 === List("Scala", "Groovy", "Java", "Kotlin"))
   }
 
   test("'makeIndex' creates a simple index with two entries") {
@@ -136,7 +136,7 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
   test("'rankLangsUsingIndex' should work for a simple RDD with three elements") {
     assert(initializeWikipediaRanking(), " -- did you fill in all the values in WikipediaRanking (conf, sc, wikiRdd)?")
     import WikipediaRanking._
-    val langs = List("Scala", "Java")
+    val langs = List("Scala", "Java", "Groovy", "Erlang")
     val articles = List(
       WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
       WikipediaArticle("2", "Scala and Java run on the JVM"),
@@ -146,7 +146,7 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     val index = makeIndex(langs, rdd)
     val ranked = rankLangsUsingIndex(index)
     val res = (ranked.head._1 == "Scala")
-    assert(res)
+    assert(ranked.unzip._1 === List("Scala", "Erlang", "Groovy", "Java"))
   }
 
   test("'rankLangsReduceByKey' should work for a simple RDD with four elements") {

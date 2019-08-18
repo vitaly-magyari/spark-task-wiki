@@ -58,35 +58,6 @@ object WikipediaRanking {
   def makeIndex(langs: List[String], rdd: RDD[WikipediaArticle]): RDD[(String, Iterable[WikipediaArticle])] =
     sc.parallelize(langs.map(lang => (lang, rdd.filter(a => a.mentionsLanguage(lang)).collect().toList)))
 
-  //  def makeTestIndex(langs: List[String], rdd: RDD[WikipediaArticle]) =
-  //    langs.map(lang => rdd.filter(_.mentionsLanguage(lang)))
-
-  def makeHadcodedIndex() = {
-    val langs = List("Scala", "Java", "Kotlin", "Groovy")
-    val articles = Seq(
-      WikipediaArticle("1", "Scala"),
-      WikipediaArticle("2", "Scala Java"),
-      WikipediaArticle("3", "Scala Java Groovy"),
-      WikipediaArticle("4", "Scala Java Groovy Kotlin")
-    )
-//    val lines = List(
-//      ("doc0", "w0 w1"),
-//      ("doc1", "w0 w2 w4")
-//    )
-//    lines
-//      .map(x => (x._1, x._2.split(" ")))
-//      .flatMap(x => x._2.map(y => (y, x._1)))
-//      .groupBy(_._1)
-//      .map(p => (p._1, p._2.unzip._2))
-
-//    articles.map(x => (x, langs.map(lang => x.mentionsLanguage(lang))))
-//    articles.flatMap(a => langs.map(l => (l, articles.filter(a => a.mentionsLanguage(l)))))
-//    articles.flatMap(a => langs.map(l => (l, if (a.mentionsLanguage(l)) a else Nil)))
-    sc.parallelize(langs.map(lang => (lang, articles.filter(a => a.mentionsLanguage(lang)))))
-//      .groupBy(_._1)
-//      .map(p => (p._1, p._2)
-  }
-
   /* (2) Compute the language ranking again, but now using the inverted index. Can you notice
    *     a performance improvement?
    *

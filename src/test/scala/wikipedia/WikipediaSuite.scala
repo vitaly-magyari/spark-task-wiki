@@ -31,7 +31,6 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
   /**
     * Creates a truncated string representation of a list, adding ", ...)" if there
     * are too many elements to show
-    *
     * @param l The list to preview
     * @param n The number of elements to cut it at
     * @return A preview of the list, containing at most n elements.
@@ -44,8 +43,7 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     * Asserts that all the elements in a given list and an expected list are the same,
     * regardless of order. For a prettier output, given and expected should be sorted
     * with the same ordering.
-    *
-    * @param given    The actual list
+    * @param given The actual list
     * @param expected The expected list
     * @tparam A Type of the list elements
     */
@@ -133,32 +131,6 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     val res = index.count() == 4
     assert(res)
     println(index.collect())
-  }
-
-//  test("validate test index") {
-//    import WikipediaRanking._
-//    val langs = List("Scala", "Java")
-//    val articles = List(
-//      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
-//      WikipediaArticle("2", "Scala and Java run on the JVM"),
-//      WikipediaArticle("3", "Scala is not purely functional")
-//    )
-//    val rdd = sc.parallelize(articles)
-//    val index = makeTestIndex(langs, rdd)
-//    for {
-//      rdd <- index
-//      article <- rdd
-//    } yield println(article.text)
-//  }
-
-  test("test hardcoded index") {
-    import WikipediaRanking._
-    val index = makeHadcodedIndex()
-    println(index)
-//    assert(index("w0").contains("doc0"))
-//    assert(index("w1").contains("doc0"))
-//    assert(index("w2").contains("doc1"))
-//    assert(index("w4").contains("doc1"))
   }
 
   test("'rankLangsUsingIndex' should work for a simple RDD with three elements") {

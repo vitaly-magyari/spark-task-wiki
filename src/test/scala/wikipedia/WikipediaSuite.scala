@@ -31,6 +31,7 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
   /**
     * Creates a truncated string representation of a list, adding ", ...)" if there
     * are too many elements to show
+    *
     * @param l The list to preview
     * @param n The number of elements to cut it at
     * @return A preview of the list, containing at most n elements.
@@ -43,7 +44,8 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     * Asserts that all the elements in a given list and an expected list are the same,
     * regardless of order. For a prettier output, given and expected should be sorted
     * with the same ordering.
-    * @param given The actual list
+    *
+    * @param given    The actual list
     * @param expected The expected list
     * @tparam A Type of the list elements
     */
@@ -97,7 +99,7 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     val rdd = sc.parallelize(
       Seq(
         WikipediaArticle("title", "Java Jakarta"),
-        WikipediaArticle("title", "Java Jakarta")
+        WikipediaArticle("title", "Java Jakarta Java")
       ))
     val res = (occurrencesOfLang("Java", rdd) === 2)
     assert(res, "occurrencesOfLang given (specific) RDD with one element should equal to 1")
@@ -106,26 +108,57 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
   test("'rankLangs' should work for RDD with two elements") {
     assert(initializeWikipediaRanking(), " -- did you fill in all the values in WikipediaRanking (conf, sc, wikiRdd)?")
     import WikipediaRanking._
-    val langs = List("Scala", "Java")
-    val rdd = sc.parallelize(List(WikipediaArticle("1", "Scala is great"), WikipediaArticle("2", "Java is OK, but Scala is cooler")))
+    val langs = List("Scala", "Java", "Kotlin", "Groovy")
+    val rdd = sc.parallelize(List(
+      WikipediaArticle("1", "Scala"),
+      WikipediaArticle("2", "Scala Java"),
+      WikipediaArticle("2", "Scala Java Groovy"),
+      WikipediaArticle("2", "Scala Java Groovy Kotlin")
+    ))
     val ranked = rankLangs(langs, rdd)
-    val res = ranked.head._1 == "Scala"
-    assert(res)
+    assert(ranked.unzip._1 === List("Scala", "Java", "Groovy", "Kotlin"))
   }
 
   test("'makeIndex' creates a simple index with two entries") {
     assert(initializeWikipediaRanking(), " -- did you fill in all the values in WikipediaRanking (conf, sc, wikiRdd)?")
     import WikipediaRanking._
-    val langs = List("Scala", "Java")
+    val langs = List("Scala", "Java", "Groovy", "Erlang")
     val articles = List(
-        WikipediaArticle("1","Groovy is pretty interesting, and so is Erlang"),
-        WikipediaArticle("2","Scala and Java run on the JVM"),
-        WikipediaArticle("3","Scala is not purely functional")
-      )
+      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
+      WikipediaArticle("2", "Scala and Java run on the JVM"),
+      WikipediaArticle("3", "Scala is not purely functional")
+    )
     val rdd = sc.parallelize(articles)
     val index = makeIndex(langs, rdd)
-    val res = index.count() == 2
+    val res = index.count() == 4
     assert(res)
+    println(index.collect())
+  }
+
+//  test("validate test index") {
+//    import WikipediaRanking._
+//    val langs = List("Scala", "Java")
+//    val articles = List(
+//      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
+//      WikipediaArticle("2", "Scala and Java run on the JVM"),
+//      WikipediaArticle("3", "Scala is not purely functional")
+//    )
+//    val rdd = sc.parallelize(articles)
+//    val index = makeTestIndex(langs, rdd)
+//    for {
+//      rdd <- index
+//      article <- rdd
+//    } yield println(article.text)
+//  }
+
+  test("test hardcoded index") {
+    import WikipediaRanking._
+    val index = makeHadcodedIndex()
+    println(index)
+//    assert(index("w0").contains("doc0"))
+//    assert(index("w1").contains("doc0"))
+//    assert(index("w2").contains("doc1"))
+//    assert(index("w4").contains("doc1"))
   }
 
   test("'rankLangsUsingIndex' should work for a simple RDD with three elements") {
@@ -133,10 +166,10 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     import WikipediaRanking._
     val langs = List("Scala", "Java")
     val articles = List(
-        WikipediaArticle("1","Groovy is pretty interesting, and so is Erlang"),
-        WikipediaArticle("2","Scala and Java run on the JVM"),
-        WikipediaArticle("3","Scala is not purely functional")
-      )
+      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
+      WikipediaArticle("2", "Scala and Java run on the JVM"),
+      WikipediaArticle("3", "Scala is not purely functional")
+    )
     val rdd = sc.parallelize(articles)
     val index = makeIndex(langs, rdd)
     val ranked = rankLangsUsingIndex(index)
@@ -149,12 +182,12 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     import WikipediaRanking._
     val langs = List("Scala", "Java", "Groovy", "Haskell", "Erlang")
     val articles = List(
-        WikipediaArticle("1","Groovy is pretty interesting, and so is Erlang"),
-        WikipediaArticle("2","Scala and Java run on the JVM"),
-        WikipediaArticle("3","Scala is not purely functional"),
-        WikipediaArticle("4","The cool kids like Haskell more than Java"),
-        WikipediaArticle("5","Java is for enterprise developers")
-      )
+      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
+      WikipediaArticle("2", "Scala and Java run on the JVM"),
+      WikipediaArticle("3", "Scala is not purely functional"),
+      WikipediaArticle("4", "The cool kids like Haskell more than Java"),
+      WikipediaArticle("5", "Java is for enterprise developers")
+    )
     val rdd = sc.parallelize(articles)
     val ranked = rankLangsReduceByKey(langs, rdd)
     val res = (ranked.head._1 == "Java")

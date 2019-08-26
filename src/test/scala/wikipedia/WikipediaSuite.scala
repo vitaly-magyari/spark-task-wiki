@@ -128,8 +128,9 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     )
     val rdd = sc.parallelize(articles)
     val index = makeIndex(langs, rdd)
-    val res = index.count() == 4
-    assert(res)
+    index.foreach(println)
+    val res = index.count()
+    assert(res == 4)
     println(index.collect())
   }
 
@@ -145,8 +146,22 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
     val rdd = sc.parallelize(articles)
     val index = makeIndex(langs, rdd)
     val ranked = rankLangsUsingIndex(index)
-    val res = (ranked.head._1 == "Scala")
+//    val res = (ranked.head._1 == "Scala")
     assert(ranked.unzip._1 === List("Scala", "Erlang", "Groovy", "Java"))
+  }
+
+  test("rdd by lang") {
+    import WikipediaRanking._
+    val langs = List("Scala", "Java", "Groovy", "Erlang")
+    val articles = List(
+      WikipediaArticle("1", "Groovy is pretty interesting, and so is Erlang"),
+      WikipediaArticle("2", "Scala and Java run on the JVM"),
+      WikipediaArticle("3", "Scala is not purely functional")
+    )
+    val articlesRdd = sc.parallelize(articles)
+    val res = rankLangsReduceByKeyCBV(langs, articlesRdd)
+    res.foreach(println)
+    assert(false)
   }
 
   test("'rankLangsReduceByKey' should work for a simple RDD with four elements") {
@@ -161,7 +176,8 @@ class WikipediaSuite extends FunSuite with BeforeAndAfterAll {
       WikipediaArticle("5", "Java is for enterprise developers")
     )
     val rdd = sc.parallelize(articles)
-    val ranked = rankLangsReduceByKey(langs, rdd)
+    val ranked = rankLangsReduceByKeyCBV(langs, rdd)
+    ranked.foreach(println)
     val res = (ranked.head._1 == "Java")
     assert(res)
   }

@@ -56,8 +56,11 @@ object WikipediaRanking {
    * to the Wikipedia pages in which it occurs.
    */
   def makeIndex(langs: List[String], rdd: RDD[WikipediaArticle]): RDD[(String, Iterable[WikipediaArticle])] =
-    sc.parallelize(langs.map(lang => (lang, rdd.filter(a => a.mentionsLanguage(lang)).collect().toList)))
-
+//    sc.parallelize(langs.map(lang => (lang, rdd.filter(a => a.mentionsLanguage(lang)).collect().toList)))
+  rdd.flatMap { a =>
+    langs.filter(l =>  a.mentionsLanguage(l)).map(l => l -> a)
+  }.groupByKey()
+//rdd.map(a => langs.map(l => List(l, (if (a.mentionsLanguage(l))  1 else 0)))
   /* (2) Compute the language ranking again, but now using the inverted index. Can you notice
    *     a performance improvement?
    *
@@ -73,8 +76,14 @@ object WikipediaRanking {
    *   Note: this operation is long-running. It can potentially run for
    *   several seconds.
    */
-  def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = ???
+  def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = rdd.flatMap {
+    a => langs.filter(l => a.mentionsLanguage(l)).map(l => l -> 1)
+  }.reduceByKey(_ + _).sortBy(- _._2).collect().toList
   // I don't understand what's required of me here
+
+  def rankLangsReduceByKeyCBV(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Long)] = rdd.flatMap {
+    a => langs.filter(l => a.mentionsLanguage(l))
+  }.countByValue().toList.sortBy(- _._2)
 
   def main(args: Array[String]) {
 

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c082ad2-0790-4db6-bb87-ba790e5f477b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="254">
+              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
               <folding>
                 <element signature="e#19#68#0" expanded="true" />
               </folding>
@@ -33,11 +34,32 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-core_2.11/2.1.0/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/rdd/PairRDDFunctions.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="329" column="6" selection-start-line="329" selection-start-column="6" selection-end-line="329" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
+            <state relative-caret-position="115">
+              <caret line="166" column="3" lean-forward="true" selection-start-line="166" selection-start-column="3" selection-end-line="166" selection-end-column="3" />
+              <folding>
+                <element signature="e#19#69#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.6/scalatest_2.11-2.2.6-sources.jar!/org/scalatest/OutcomeOf.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -79,10 +101,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1519" />
-    <option name="y" value="-423" />
-    <option name="width" value="1444" />
-    <option name="height" value="802" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-511" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -90,6 +112,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,15 +191,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566145524530" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566822355132" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assignment.sbt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -193,7 +215,61 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="ScalaTest.WikipediaSuite.'rankLangsReduceByKey' should work for a simple RDD with four elements">
+    <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="bigdata-wikipedia" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <envs />
+      <setting name="testKind" value="Test name" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="testName" value="'makeIndex' creates a simple index with two entries" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WikipediaSuite.'rankLangsReduceByKey' should work for a simple RDD with four elements" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="bigdata-wikipedia" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <envs />
+      <setting name="testKind" value="Test name" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="testName" value="'rankLangsReduceByKey' should work for a simple RDD with four elements" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WikipediaSuite.rdd by lang" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="bigdata-wikipedia" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <envs />
+      <setting name="testKind" value="Test name" />
+      <setting name="path" value="wikipedia.WikipediaSuite" />
+      <setting name="testName" value="rdd by lang" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -256,6 +332,13 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="ScalaTest.WikipediaSuite.'rankLangsReduceByKey' should work for a simple RDD with four elements" />
+        <item itemvalue="ScalaTest.WikipediaSuite.rdd by lang" />
+        <item itemvalue="ScalaTest.WikipediaSuite.'makeIndex' creates a simple index with two entries" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
     <option name="availableProjects">
@@ -318,7 +401,9 @@
       <updated>1565888057014</updated>
       <workItem from="1565888060642" duration="871000" />
       <workItem from="1565959838081" duration="5510000" />
-      <workItem from="1566126043126" duration="17966000" />
+      <workItem from="1566126043126" duration="23566000" />
+      <workItem from="1566567734402" duration="1748000" />
+      <workItem from="1566818744257" duration="2844000" />
     </task>
     <task id="LOCAL-00001" summary="rdd initializer impl and test">
       <created>1565897392687</created>
@@ -355,17 +440,65 @@
       <option name="project" value="LOCAL" />
       <updated>1566145412361</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cleanup">
+      <created>1566145531049</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566145531049</updated>
+    </task>
+    <task id="LOCAL-00007" summary="cleanup">
+      <created>1566145564832</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566145564832</updated>
+    </task>
+    <task id="LOCAL-00008" summary="trial at reduceByKey">
+      <created>1566150878133</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1566150878133</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="WikipediaSuite_'makeIndex'_creates_a_simple_index_with_two_entries - 2019.08.26 at 14h 43m 41s.xml">
+      <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'makeIndex'_creates_a_simple_index_with_two_entries - 2019.08.26 at 14h 45m 55s.xml">
+      <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'makeIndex'_creates_a_simple_index_with_two_entries - 2019.08.26 at 14h 47m 19s.xml">
+      <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'makeIndex'_creates_a_simple_index_with_two_entries - 2019.08.26 at 14h 56m 29s.xml">
+      <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'makeIndex'_creates_a_simple_index_with_two_entries - 2019.08.26 at 14h 58m 18s.xml">
+      <configuration name="WikipediaSuite.'makeIndex' creates a simple index with two entries" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'rankLangsReduceByKey'_should_work_for_a_simple_RDD_with_four_elements - 2019.08.26 at 14h 58m 37s.xml">
+      <configuration name="WikipediaSuite.'rankLangsReduceByKey' should work for a simple RDD with four elements" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_'rankLangsReduceByKey'_should_work_for_a_simple_RDD_with_four_elements - 2019.08.26 at 14h 59m 42s.xml">
+      <configuration name="WikipediaSuite.'rankLangsReduceByKey' should work for a simple RDD with four elements" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="WikipediaSuite_rdd_by_lang - 2019.08.26 at 15h 21m 11s.xml">
+      <configuration name="WikipediaSuite.rdd by lang" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30449000" />
+    <option name="totallyTimeSpent" value="40641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-511" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="799" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49605057" visible="true" weight="0.19009584" />
-      <window_info id="Structure" order="1" sideWeight="0.50394946" side_tool="true" visible="true" weight="0.19009584" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49269006" weight="0.25894135" />
+      <window_info id="Structure" order="1" sideWeight="0.5073099" side_tool="true" weight="0.25894135" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -373,19 +506,19 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32894737" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="8" weight="0.32908705" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893504" weight="0.2314225" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893504" weight="0.31871346" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50106496" side_tool="true" weight="0.2314225" />
       <window_info anchor="bottom" id="SonarLint" order="11" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32908705" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.49946752" visible="true" weight="0.3280255" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49946752" weight="0.3280255" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.32908705" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -450,7 +583,20 @@
     <MESSAGE value="mention of languages + tests" />
     <MESSAGE value="from multiple sources" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="trial at reduceByKey" />
+    <option name="LAST_COMMIT_MESSAGE" value="trial at reduceByKey" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala</url>
+          <line>132</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar!/scala/collection/immutable/StringLike.scala">
@@ -505,23 +651,6 @@
     <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-core_2.11/2.1.0/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/SparkConf.scala">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar!/scala/collection/IndexedSeqOptimized.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-core_2.11/2.1.0/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/SparkContext.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11400">
-          <caret line="816" column="6" selection-start-line="816" selection-start-column="6" selection-end-line="816" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar!/scala/io/BufferedSource.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
@@ -557,10 +686,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar!/scala/collection/TraversableOnce.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="217" column="6" selection-start-line="217" selection-start-column="6" selection-end-line="217" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12-sources.jar!/scala/collection/IndexedSeqOptimized.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1980">
+          <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-core_2.11/2.1.0/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/SparkContext.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11400">
+          <caret line="816" column="6" selection-start-line="816" selection-start-column="6" selection-end-line="816" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest_2.11/2.2.6/scalatest_2.11-2.2.6-sources.jar!/org/scalatest/OutcomeOf.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="83" column="4" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/spark/spark-core_2.11/2.1.0/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/rdd/PairRDDFunctions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="329" column="6" selection-start-line="329" selection-start-column="6" selection-end-line="329" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="254">
+          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
           <folding>
             <element signature="e#19#68#0" expanded="true" />
           </folding>
@@ -569,8 +736,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        <state relative-caret-position="115">
+          <caret line="166" column="3" lean-forward="true" selection-start-line="166" selection-start-column="3" selection-end-line="166" selection-end-column="3" />
+          <folding>
+            <element signature="e#19#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
